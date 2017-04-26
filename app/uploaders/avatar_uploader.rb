@@ -10,5 +10,26 @@ class AvatarUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
+  ## Tamanhos que o CarrierWave vai salvar as imagens
+
+  # Thumb
+  version :thumb do
+    process resize_to_fit: [50, 50]
+  end
+
+  # Medium
+  version :medium do
+    process resize_to_fit: [150, 150]
+  end
+
+  # Big
+  version :big do
+    process resize_to_fit: [300, 300]
+  end
+
+  # Tipos de extensoes aceitas
+  def extension_whitelist
+    %w(jpg jpeg gif png)
+  end
 
 end
