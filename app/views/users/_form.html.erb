@@ -6,6 +6,11 @@
     <%= f.input :last_name %>
     <%= f.input :email %>
     <%= f.input :about %>
+    <%= f.label 'Photo' %>
+    <%= f.file_field :avatar %>
+    <br>
+    <%= f.label 'Documentos' %>
+    <%= f.file_field :documents, multiple: true %>
   </div>
 
   <div class="form-actions">
